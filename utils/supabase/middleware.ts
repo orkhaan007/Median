@@ -47,9 +47,10 @@ export const updateSession = async (request: NextRequest) => {
       return NextResponse.redirect(new URL("/sign-in", request.url));
     }
 
-    if (request.nextUrl.pathname === "/") {
-      return NextResponse.redirect(new URL("/blogs", request.url));
-    }
+    // Home page now loads directly without redirect
+    // if (request.nextUrl.pathname === "/") {
+    //   return NextResponse.redirect(new URL("/Home", request.url));
+    // }
 
     return response;
   } catch (e) {
