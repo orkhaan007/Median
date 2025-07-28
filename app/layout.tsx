@@ -1,5 +1,6 @@
 import { Geist } from "next/font/google";
 import "./globals.scss";
+import ScrollToTop from "@/components/ui/ScrollToTop";
 
 const defaultUrl = process.env.VERCEL_URL
   ? `https://${process.env.VERCEL_URL}`
@@ -25,6 +26,7 @@ export default function RootLayout({
     <html lang="en" className={geistSans.className} suppressHydrationWarning>
       <body className="">
         {children}
+        <ScrollToTop />
       </body>
     </html>
   );
