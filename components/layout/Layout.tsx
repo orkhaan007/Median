@@ -3,6 +3,7 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
+import ScrollToTop from "../ui/ScrollToTop";
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -14,6 +15,7 @@ const Layout = ({ children }: LayoutProps) => {
       <Header />
       <main className="flex-grow">{children}</main>
       <Footer />
+      <ScrollToTop showAfterPx={400} animationDuration={1200} />
     </div>
   );
 };

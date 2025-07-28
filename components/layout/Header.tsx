@@ -7,14 +7,15 @@ import { ChevronDown } from "lucide-react";
 const Header = () => {
   const [mediaOpen, setMediaOpen] = useState(false);
   const [rescueOpen, setRescueOpen] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="bg-gradient-to-r from-green-500 to-black shadow-md">
+    <header className="bg-white border-b border-gray-200">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
 
           <div className="flex-shrink-0">
-            <Link href="/" className="text-xl font-bold text-white">
+            <Link href="/" className="text-xl font-bold text-gray-800 hover:text-[#0ed632] transition-colors">
               Median
             </Link>
           </div>
@@ -25,7 +26,7 @@ const Header = () => {
               <li>
                 <Link 
                   href="/" 
-                  className="text-white hover:text-green-200 transition-colors"
+                  className="text-gray-600 hover:text-[#0ed632] font-medium transition-colors"
                 >
                   Home
                 </Link>
@@ -33,7 +34,7 @@ const Header = () => {
               <li>
                 <Link 
                   href="/application" 
-                  className="text-white hover:text-green-200 transition-colors"
+                  className="text-gray-600 hover:text-[#0ed632] font-medium transition-colors"
                 >
                   Application
                 </Link>
@@ -41,7 +42,7 @@ const Header = () => {
               <li>
                 <Link 
                   href="/team" 
-                  className="text-white hover:text-green-200 transition-colors"
+                  className="text-gray-600 hover:text-[#0ed632] font-medium transition-colors"
                 >
                   Team
                 </Link>
@@ -49,7 +50,7 @@ const Header = () => {
               <li>
                 <Link 
                   href="/about" 
-                  className="text-white hover:text-green-200 transition-colors"
+                  className="text-gray-600 hover:text-[#0ed632] font-medium transition-colors"
                 >
                   About
                 </Link>
@@ -58,7 +59,7 @@ const Header = () => {
 
               <li className="relative">
                 <button 
-                  className="flex items-center text-white hover:text-green-200 transition-colors"
+                  className="flex items-center text-gray-600 hover:text-[#0ed632] font-medium transition-colors"
                   onClick={() => {
                     setMediaOpen(!mediaOpen);
                     if (rescueOpen) setRescueOpen(false);
@@ -69,12 +70,12 @@ const Header = () => {
                 </button>
                 {mediaOpen && (
                   <div
-                    className="absolute top-full left-0 mt-1 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+                    className="absolute top-full left-0 mt-1 w-48 rounded shadow-sm bg-white border border-gray-100"
                   >
                     <div className="py-1" role="menu" aria-orientation="vertical">
                       <Link
                         href="/media/gallery"
-                        className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-green-100"
+                        className="flex items-center px-4 py-2 text-sm text-gray-700 hover:text-[#0ed632] hover:bg-[#f0fff0]"
                         role="menuitem"
                         onClick={() => setMediaOpen(false)}
                       >
@@ -85,7 +86,7 @@ const Header = () => {
                       </Link>
                       <Link
                         href="/media/my-uploads"
-                        className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-green-100"
+                        className="flex items-center px-4 py-2 text-sm text-gray-700 hover:text-[#0ed632] hover:bg-[#f0fff0]"
                         role="menuitem"
                         onClick={() => setMediaOpen(false)}
                       >
@@ -96,7 +97,7 @@ const Header = () => {
                       </Link>
                       <Link
                         href="/media/upload"
-                        className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-green-100"
+                        className="flex items-center px-4 py-2 text-sm text-gray-700 hover:text-[#0ed632] hover:bg-[#f0fff0]"
                         role="menuitem"
                         onClick={() => setMediaOpen(false)}
                       >
@@ -107,7 +108,7 @@ const Header = () => {
                       </Link>
                       <Link
                         href="/media/videos"
-                        className="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-green-100"
+                        className="flex items-center px-4 py-2 text-sm text-gray-700 hover:text-[#0ed632] hover:bg-[#f0fff0]"
                         role="menuitem"
                         onClick={() => setMediaOpen(false)}
                       >
@@ -124,28 +125,34 @@ const Header = () => {
 
               <li className="relative">
                 <button 
-                  className="flex items-center text-white hover:text-green-200 transition-colors"
+                  className="flex items-center text-gray-600 hover:text-[#0ed632] font-medium transition-colors"
                   onClick={() => {
                     setRescueOpen(!rescueOpen);
                     if (mediaOpen) setMediaOpen(false);
                   }}
                 >
-                  Rescue4src
+                  Resources
                   <ChevronDown className="ml-1 h-4 w-4" />
                 </button>
                 {rescueOpen && (
-                  <div className="absolute left-0 mt-2 w-48 bg-white rounded-md shadow-lg py-1 z-10">
+                  <div className="absolute left-0 mt-1 w-48 bg-white rounded shadow-sm border border-gray-100 py-1 z-10">
                     <Link 
-                      href="/rescue4src/zirh" 
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      href="/resources/armor" 
+                      className="flex items-center px-4 py-2 text-sm text-gray-700 hover:text-[#0ed632] hover:bg-[#f0fff0]"
                     >
-                      Zirh
+                      <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
+                      </svg>
+                      Armor
                     </Link>
                     <Link 
-                      href="/rescue4src/form" 
-                      className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      href="/resources/jersey" 
+                      className="flex items-center px-4 py-2 text-sm text-gray-700 hover:text-[#0ed632] hover:bg-[#f0fff0]"
                     >
-                      Form
+                      <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path>
+                      </svg>
+                      Jersey
                     </Link>
                   </div>
                 )}
@@ -155,13 +162,110 @@ const Header = () => {
 
 
           <div className="md:hidden">
-            <button className="text-white hover:text-green-200 focus:outline-none">
+            <button 
+              className="text-gray-600 hover:text-[#0ed632] focus:outline-none"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
               </svg>
             </button>
           </div>
         </div>
+        
+        {/* Mobile menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden py-4 border-t border-gray-100">
+            <nav>
+              <ul className="space-y-2">
+                <li>
+                  <Link 
+                    href="/" 
+                    className="block px-4 py-2 text-gray-600 hover:text-[#0ed632] hover:bg-[#f0fff0]"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Home
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    href="/application" 
+                    className="block px-4 py-2 text-gray-600 hover:text-[#0ed632] hover:bg-[#f0fff0]"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Application
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    href="/team" 
+                    className="block px-4 py-2 text-gray-600 hover:text-[#0ed632] hover:bg-[#f0fff0]"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Team
+                  </Link>
+                </li>
+                <li>
+                  <Link 
+                    href="/about" 
+                    className="block px-4 py-2 text-gray-600 hover:text-[#0ed632] hover:bg-[#f0fff0]"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    About
+                  </Link>
+                </li>
+                <li className="border-t border-gray-100 pt-2 mt-2">
+                  <p className="px-4 text-sm font-medium text-gray-500">Media</p>
+                  <Link 
+                    href="/media/gallery" 
+                    className="block px-6 py-2 text-gray-600 hover:text-[#0ed632] hover:bg-[#f0fff0]"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Gallery
+                  </Link>
+                  <Link 
+                    href="/media/my-uploads" 
+                    className="block px-6 py-2 text-gray-600 hover:text-[#0ed632] hover:bg-[#f0fff0]"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    My Uploads
+                  </Link>
+                  <Link 
+                    href="/media/upload" 
+                    className="block px-6 py-2 text-gray-600 hover:text-[#0ed632] hover:bg-[#f0fff0]"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Upload Image
+                  </Link>
+                  <Link 
+                    href="/media/videos" 
+                    className="block px-6 py-2 text-gray-600 hover:text-[#0ed632] hover:bg-[#f0fff0]"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Videos
+                  </Link>
+                </li>
+                <li className="border-t border-gray-100 pt-2 mt-2">
+                  <p className="px-4 text-sm font-medium text-gray-500">Rescue4src</p>
+                  <Link 
+                    href="/rescue4src/zirh" 
+                    className="block px-6 py-2 text-gray-600 hover:text-[#0ed632] hover:bg-[#f0fff0]"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Zirh
+                  </Link>
+                  <Link 
+                    href="/rescue4src/form" 
+                    className="block px-6 py-2 text-gray-600 hover:text-[#0ed632] hover:bg-[#f0fff0]"
+                    onClick={() => setMobileMenuOpen(false)}
+                  >
+                    Form
+                  </Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        )}
       </div>
     </header>
   );
